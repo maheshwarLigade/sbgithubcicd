@@ -1,15 +1,21 @@
-name: Heroku spring boot Deployment
+name: Heroku github actions CI and CD demo
+
 on:
   push:
     branches: [ main ]
+
 jobs:
   build:
-runs-on: ubuntu-latest
-steps:
+
+    runs-on: ubuntu-latest
+
+
+
+    steps:
     - uses: actions/checkout@v2
     - name: Deploy to Heroku
       uses: AkhileshNS/heroku-deploy@v3.12.12
-      with:
+      with: #below are the secrete
         heroku_api_key: ${{secrets.SBHEROKU_API_KEY}}
         heroku_email: ${{secrets.SBHEROKU_EMAIL}}
         heroku_app_name: ${{secrets.SBHEROKU_APP}}
